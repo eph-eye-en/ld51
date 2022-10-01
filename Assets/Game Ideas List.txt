@@ -1,0 +1,40 @@
+Parralell universe flipping between
+either different situations
+or a person flipping thru time/location to time.
+
+lots of tasks to do, basic is to click space bar every 10 seconds and then type no every 2 seconds
+
+mystery puzzle like outer wilds that resets?
+
+murder mystery where you can only interview people for 10 seconds
+
+a puzzle where you only have 10 seconds to find out what you need from it.
+
+design a system that has to do a task every 10 seconds
+- catch an asteroid and then strip down and get next asteroid in 10 seconds
+
+Control broadcast of some sort
+Frequency changes every 10 seconds and have to change tuning
+Has to control camera 
+
+Groundhog day to avoid a certain situation
+
+Change the situation - airport security - 
+
+Something happens every 10 seconds doesnt have to be same thing
+-man opens window to put washing out which makes space inoperable
+
+Time Traveller to when something happens. Arrive 10 seconds before
+
+Defuse Bomb?
+-Use base for timer?
+Tutorial for lvl 1
+base for rest?
+Puzzle to have on bomb:
+}Cut wires (in certain order)
+}Code input
+}Press Button # times
+}Type certain things (use keyboard numpad for pad on bomb?)	Capslock flips mode?
+}Dials?
+}Button with time requirement?
+}
