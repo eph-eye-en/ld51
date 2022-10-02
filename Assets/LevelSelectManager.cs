@@ -13,6 +13,7 @@ public class LevelSelectManager : MonoBehaviour
     public int LevelNumber { 
         set {
             levelnumber = value;
+            PlayerPrefs.SetInt("LevelNumb", LevelNumber);
             UpdateNodes();
         }
         get {
@@ -34,7 +35,6 @@ public class LevelSelectManager : MonoBehaviour
             HasPassedLastLevel = false;
             LevelNumber += 1;
         }
-        PlayerPrefs.SetInt("LevelNumb", LevelNumber);
     }
 
     // Update is called once per frame
