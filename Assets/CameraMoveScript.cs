@@ -8,6 +8,9 @@ public class CameraMoveScript : MonoBehaviour
     public float ScreenTolerance;
     public float CamMoveSpeed;
 
+    public Vector2 MaxBounds;
+    public Vector2 MinBounds;
+
     void Start()
     {
         MainCam = gameObject.GetComponent<Camera>();    
@@ -31,7 +34,28 @@ public class CameraMoveScript : MonoBehaviour
             YDirection = (MouseScreenPos.y - 0.5f) / Mathf.Abs(MouseScreenPos.y - 0.5f);
         }
 
-        MainCam.transform.position += new Vector3(XDirection * CamMoveSpeed * Time.deltaTime, 0, YDirection * CamMoveSpeed * Time.deltaTime);
+        Vector2 NewPos = new Vector2(MainCam.transform.position.x + (XDirection * CamMoveSpeed * Time.deltaTime), MainCam.transform.position.z + (YDirection * CamMoveSpeed * Time.deltaTime));
+
+        if(NewPos.x < MinBounds.x || NewPos.x > MaxBounds.x)
+        {
+            NewPos.x = MainCam.transform.position.x;
+        }
+        if (NewPos.y < MinBounds.y || NewPos.y > MaxBounds.y)
+        {
+            NewPos.y = MainCam.transform.position.z;
+        }
+
+        MainCam.transform.position = new Vector3(NewPos.x,transform.position.y,NewPos.y);
 
     }
+
+    private void OnDrawGizmos()
+    {
+        float PosY = transform.position.y;
+        Gizmos.DrawLine(new Vector3(MinBounds.x, PosY, MinBounds.y), new Vector3(MinBounds.x, PosY, MaxBounds.y));
+        Gizmos.DrawLine(new Vector3(MinBounds.x, PosY, MinBounds.y), new Vector3(MaxBounds.x, PosY, MinBounds.y));
+        Gizmos.DrawLine(new Vector3(MaxBounds.x, PosY, MaxBounds.y), new Vector3(MaxBounds.x, PosY, MinBounds.y));
+        Gizmos.DrawLine(new Vector3(MaxBounds.x, PosY, MaxBounds.y), new Vector3(MinBounds.x, PosY, MaxBounds.y));
+    }
+
 }
