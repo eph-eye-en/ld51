@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4080701139549317733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.30196238, y: 0.073, z: 0.27969933}
+  m_LocalPosition: {x: -0.2796993, y: 0.073, z: 0.0580376}
   m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afcbe0fb6fda6add8b44cdaf9bb36dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Size: {x: 3, y: 4}
+  Size: {x: 1, y: 1}
   Attemptable: 0
   OnSuccess:
     m_PersistentCalls:
@@ -169,7 +169,20 @@ MonoBehaviour:
   OnFail:
     m_PersistentCalls:
       m_Calls: []
-  KeypadSize: {x: 3, y: 4}
+  KeypadSize: {x: 4, y: 3}
+  Labels:
+  - 1
+  - 2
+  - 3
+  - '#'
+  - 4
+  - 5
+  - 6
+  - 0
+  - 7
+  - 8
+  - 9
+  - '*'
   CorrectCode: 
   keysOrigin: {fileID: 9202955897165910866}
   keyPrefab: {fileID: 5575305834454367720, guid: 2acb2b28e60eb23119aed55bfb2d05ff, type: 3}
@@ -198,14 +211,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9212942842444699296}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.2920642, y: 0.093, z: 0}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0.093, z: 0.2920642}
   m_LocalScale: {x: 1, y: 3.4999998, z: 0.59999996}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8083938091347136978}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!33 &1809274036600449221
 MeshFilter:
   m_ObjectHideFlags: 0

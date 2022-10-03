@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class KeypadModule : ModuleController
 {
     public Vector2Int KeypadSize;
+    public string[] Labels;
     public List<int> CorrectCode;
 
     [SerializeField]
@@ -25,6 +27,8 @@ public class KeypadModule : ModuleController
                 // Capture variables by value, not reference
                 var (x_, y_) = (x, y);
                 k.OnPressed.AddListener(() => OnKeyPressed(x_, y_));
+                var label = k.GetComponentInChildren<TMP_Text>();
+                label.text = Labels[x + y * KeypadSize.x];
                 keys[x,y] = k;
             }
     }

@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7404776260659296491, guid: e5b03c09568b4b38bb04f0f4d2f46d3d, type: 3}
       propertyPath: CorrectCode.Array.data[2]
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8083938091347136978, guid: e5b03c09568b4b38bb04f0f4d2f46d3d, type: 3}
       propertyPath: m_RootOrder
