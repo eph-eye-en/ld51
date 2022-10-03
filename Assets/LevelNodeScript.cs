@@ -8,13 +8,15 @@ public class LevelNodeScript : MonoBehaviour
     public float MinPulse;
     public float PulseTime = 1f;
     private bool PulseUp;
+    public Transform BombLocation;
+    public GameObject Bomb;
 
     public bool IsCurrentLevel;
 
-
     void Update()
     {
-        Pulse();
+        //if(Bomb.transform.IsChildOf(transform))
+            Pulse();
     }
 
     void Pulse()

@@ -22,6 +22,10 @@ public class LevelSelectManager : MonoBehaviour
     }
     public static bool HasPassedLastLevel = false;
 
+    public Transform DisplayTransform;
+    LevelNodeScript ChosenLevel;
+
+    int LevelDisplayState = 0;
 
     void Start()
     {
@@ -40,7 +44,16 @@ public class LevelSelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+            CheckLevelSelect();
+
+        //if(LevelDisplayState == 1)
+        //{
+        //    ShowLevelMenu();
+        //}else if (LevelDisplayState == 2)
+        //{
+        //    HideLevelMenu();
+        //}
     }
 
     void UpdateNodes() {
@@ -57,6 +70,86 @@ public class LevelSelectManager : MonoBehaviour
             LevelNodes[i].GetComponent<SpriteRenderer>().color = LockedColour;
             LevelNodes[i].IsCurrentLevel = false;
         }
+    }
+
+    void CheckLevelSelect() {
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+        Physics.Raycast(mouseRay, out hitInfo);
+        LevelNodeScript nodeScript = hitInfo.transform.GetComponent<LevelNodeScript>();
+
+        if (LevelNodes.Contains(nodeScript))
+        {
+
+            Debug.LogWarning(Camera.main);
+            //nodeScript.Bomb.transform.parent = DisplayTransform;
+            //ChosenLevel = nodeScript;
+            //TimeElapsed = 0;
+            //LevelDisplayState = 1;
+            LoadScene(LevelNodes.IndexOf(nodeScript) + 1);
+        }
+        else
+        {
+            Debug.Log("Nothing Hit");
+            //if(ChosenLevel != null)
+            //{
+            //    TimeElapsed = 0;
+            //    LevelDisplayState = 2;
+            //}
+        }
+    }
+
+    void ShowLevelMenu()
+    {
+        ChosenLevel.Bomb.transform.position = LerpToPosition(ChosenLevel.BombLocation.position, DisplayTransform.position, 0.5f);
+        ChosenLevel.Bomb.transform.localRotation = LerpToRotation(ChosenLevel.Bomb.transform.localRotation, Quaternion.Euler(new Vector3(0, -90, 90)), 0.5f);
+    }
+
+    void HideLevelMenu()
+    {
+        ChosenLevel.Bomb.transform.position = LerpToPosition(DisplayTransform.position, ChosenLevel.BombLocation.position, 0.5f);
+        ChosenLevel.Bomb.transform.localRotation = LerpToRotation(ChosenLevel.Bomb.transform.localRotation, Quaternion.Euler(new Vector3(0, -90, 90)), 0.5f);
+
+        Debug.LogWarning(ChosenLevel.Bomb.transform.position);
+        Debug.Log(ChosenLevel.BombLocation.position);
+
+        if(LevelDisplayState==0)
+        {
+            ChosenLevel.Bomb.transform.parent = ChosenLevel.BombLocation;
+            ChosenLevel = null;
+        }
+    }
+
+    private float TimeElapsed;
+    Vector3 LerpToPosition(Vector3 From,Vector3 To,float Duration)
+    {
+        Vector3 Pos;
+        if (TimeElapsed < Duration)
+        {
+            Pos = Vector3.Lerp(From, To, TimeElapsed / Duration);
+        }
+        else
+        {
+            Debug.LogWarning("Finish Lerp");
+            Pos = To;
+            LevelDisplayState = 0;
+        }
+        return Pos;
+    }
+
+    Quaternion LerpToRotation(Quaternion From, Quaternion To, float Duration)
+    {
+        Quaternion Rot;
+        if (TimeElapsed < Duration)
+        {
+            Rot = Quaternion.Lerp(From, To, TimeElapsed / Duration);
+            TimeElapsed += Time.deltaTime;
+        }
+        else
+        {
+            Rot = To;
+        }
+        return Rot;
     }
 
     public void LoadScene(int LevelNumber)
