@@ -286,6 +286,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b03c09568b4b38bb04f0f4d2f46d3d, type: 3}
+--- !u!114 &497434850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7404776260659296491, guid: e5b03c09568b4b38bb04f0f4d2f46d3d, type: 3}
+  m_PrefabInstance: {fileID: 497434849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afcbe0fb6fda6add8b44cdaf9bb36dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &977535651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -534,7 +545,7 @@ PrefabInstance:
     - target: {fileID: 8999806289293011792, guid: cac25fa946b7a869589b5e80c1e16b9c, type: 3}
       propertyPath: stages.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 497434850}
     - target: {fileID: 8999806289293011792, guid: cac25fa946b7a869589b5e80c1e16b9c, type: 3}
       propertyPath: stages.Array.data[2]
       value: 

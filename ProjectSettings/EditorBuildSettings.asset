@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Scene.unity
     guid: c42cc353c98ac074dafb58be29e3b81e
   - enabled: 1
-    path: Assets/Scenes/LevelWinLosetester.unity
-    guid: 0ccf0a31deeb6de478e9c8a229a3f847
+    path: Assets/Scenes/Level1.unity
+    guid: b9f8dfa683c6cd7e99f3a5c7a2ae301e
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Level2.unity
+    guid: af143fd0d9ef259c98d55e199337b602
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 1adb32b817142fe1bbd85f2c741a6939
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: f786afdafddafa066955fad89e8b9690
   m_configObjects: {}
