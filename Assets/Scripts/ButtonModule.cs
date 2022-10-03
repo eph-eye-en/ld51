@@ -8,6 +8,10 @@ public class ButtonModule : ModuleController
     private ButtonHeadController ButtonHead;
 
     public void Press() {
+        if(Attemptable)
+            OnSuccess.Invoke();
+        else
+            OnFail.Invoke();
     }
 
     public void Release() {

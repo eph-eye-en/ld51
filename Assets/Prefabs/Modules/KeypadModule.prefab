@@ -162,8 +162,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Size: {x: 3, y: 4}
+  Attemptable: 0
+  OnSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
+  KeypadSize: {x: 3, y: 4}
+  CorrectCode: 
   keysOrigin: {fileID: 9202955897165910866}
-  keyPrefab: {fileID: 4843918157206700569, guid: 2acb2b28e60eb23119aed55bfb2d05ff, type: 3}
+  keyPrefab: {fileID: 5575305834454367720, guid: 2acb2b28e60eb23119aed55bfb2d05ff, type: 3}
 --- !u!1 &9212942842444699296
 GameObject:
   m_ObjectHideFlags: 0

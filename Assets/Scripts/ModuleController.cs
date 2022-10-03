@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ModuleController : MonoBehaviour
 {
@@ -13,4 +14,8 @@ public class ModuleController : MonoBehaviour
             transform.position = (Vector2)value;
         }
     }
+
+    public bool Attemptable;
+    public UnityEvent OnSuccess;
+    public UnityEvent OnFail;
 }
