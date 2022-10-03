@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LevelSelectManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LevelSelectManager : MonoBehaviour
     public Color CurrentColour;
     public Color PastColour;
     public List<LevelNodeScript> LevelNodes;
+    public List<GameObject> LevelBriefs;
     private int levelnumber = 0;
     public int LevelNumber { 
         set {
@@ -29,6 +31,11 @@ public class LevelSelectManager : MonoBehaviour
 
     void Start()
     {
+        for (int i = 0; i < LevelBriefs.Count; i++)
+        {
+            LevelBriefs[i].SetActive(false);
+        }
+
         LevelNumber = PlayerPrefs.GetInt("LevelNumb");
 
         if (LevelNodes.Count == 0) {
@@ -54,6 +61,8 @@ public class LevelSelectManager : MonoBehaviour
         //{
         //    HideLevelMenu();
         //}
+
+        
     }
 
     void UpdateNodes() {
@@ -78,24 +87,24 @@ public class LevelSelectManager : MonoBehaviour
         Physics.Raycast(mouseRay, out hitInfo);
         LevelNodeScript nodeScript = hitInfo.transform.GetComponent<LevelNodeScript>();
 
-        if (LevelNodes.Contains(nodeScript))
+        if (LevelNodes.Contains(nodeScript) && nodeScript != null)
         {
-
             Debug.LogWarning(Camera.main);
-            //nodeScript.Bomb.transform.parent = DisplayTransform;
-            //ChosenLevel = nodeScript;
-            //TimeElapsed = 0;
-            //LevelDisplayState = 1;
-            LoadScene(LevelNodes.IndexOf(nodeScript) + 1);
+
+            if (LevelBriefs.Count >= LevelNodes.IndexOf(nodeScript) && LevelBriefs[LevelNodes.IndexOf(nodeScript)] != null && LevelNodes.IndexOf(nodeScript)<=LevelNumber)
+                LevelBriefs[LevelNodes.IndexOf(nodeScript)].SetActive(true);
         }
         else
         {
             Debug.Log("Nothing Hit");
-            //if(ChosenLevel != null)
-            //{
-            //    TimeElapsed = 0;
-            //    LevelDisplayState = 2;
-            //}
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+
+                for (int i = 0; i < LevelBriefs.Count; i++)
+                {
+                    LevelBriefs[i].SetActive(false);
+                }
+            }
         }
     }
 
