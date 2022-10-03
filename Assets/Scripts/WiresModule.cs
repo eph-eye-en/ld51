@@ -53,27 +53,36 @@ public class WiresModule : ModuleController
     }
 
     void UnplugNode(int n, bool isRight) {
+        int? nextCutOrderIndex = null;
         foreach (var w in wires)
         {
             var c = w.Controller;
-            if(!c.Unplugged
-            && (isRight || w.Left == n)
-            && (!isRight || w.Right == n)) {
-                if(w.CutOrder == currCutOrderIndex) {
-                    c.Unplugged = true;
-                    if(!isRight) {
-                        var tmp = c.StartPos;
-                        c.StartPos = c.EndPos;
-                        c.EndPos = tmp;
+            if(!c.Unplugged) {
+                if((isRight || w.Left == n)
+                && (!isRight || w.Right == n)) {
+                    if(w.CutOrder == currCutOrderIndex) {
+                        c.Unplugged = true;
+                        if(!isRight) {
+                            var tmp = c.StartPos;
+                            c.StartPos = c.EndPos;
+                            c.EndPos = tmp;
+                        }
+                        c.RegeneratePoints();
                     }
-                    c.RegeneratePoints();
+                    else {
+                        OnFail.Invoke();
+                        return;
+                    }
                 }
-                else {
-                    OnFail.Invoke();
-                    return;
-                }
+                else if(nextCutOrderIndex == null
+                || w.CutOrder < nextCutOrderIndex.Value)
+                    nextCutOrderIndex = w.CutOrder;
             }
         }
+        if(nextCutOrderIndex == null)
+            OnSuccess.Invoke();
+        else
+            currCutOrderIndex = nextCutOrderIndex.Value;
     }
 
     Clickable[] CreateNodes(Transform origin, int count, bool isRight) {
