@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
+    private float secondsAllowed;
+    [SerializeField]
     private List<ModuleController> stages;
+
     private int currStage;
+    private System.DateTime endTime;
 
     void Start() {
         foreach (var s in stages) {
@@ -15,6 +19,13 @@ public class GameController : MonoBehaviour
             s.OnSuccess.AddListener(NextStage);
         }
         stages[0].Attemptable = true;
+
+        endTime = System.DateTime.Now.AddSeconds(secondsAllowed);
+    }
+
+    void Update() {
+        if(System.DateTime.Now > endTime)
+            FailLevel();
     }
 
     void NextStage() {

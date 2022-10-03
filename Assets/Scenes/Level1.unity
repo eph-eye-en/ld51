@@ -455,6 +455,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8999806289293011792, guid: cac25fa946b7a869589b5e80c1e16b9c, type: 3}
+      propertyPath: secondsAllowed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999806289293011792, guid: cac25fa946b7a869589b5e80c1e16b9c, type: 3}
       propertyPath: stages.Array.size
       value: 1
       objectReference: {fileID: 0}
