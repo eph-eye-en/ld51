@@ -206,10 +206,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d0acd1b17f2250fbf2c6cdf0d0dfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Size: {x: 0, y: 0}
+  Attemptable: 0
+  OnSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFail:
+    m_PersistentCalls:
+      m_Calls: []
   LeftCount: 3
   RightCount: 4
-  WireCount: 3
+  WireMaterials:
+  - {fileID: 2100000, guid: 8f9189ceaca1a32e1856f4534afd8983, type: 2}
+  - {fileID: 2100000, guid: d290cbf2df4e26ae8ae7bf2a4ab9c3ac, type: 2}
+  - {fileID: 2100000, guid: 1de14bcfb23fced4183a2be039839a7e, type: 2}
+  WireConnections: []
   leftNodesOrigin: {fileID: 7723273085041830548}
   rightNodesOrigin: {fileID: 5914154917487305322}
-  nodePrefab: {fileID: 1102498790174996578, guid: 90edc820b446c5cddae48a3ab8405474, type: 3}
+  nodePrefab: {fileID: 5910632343668629056, guid: 90edc820b446c5cddae48a3ab8405474, type: 3}
   wirePrefab: {fileID: 4057557482762982454, guid: 6e7e7c79fc497ea569615125ce916a0a, type: 3}

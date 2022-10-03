@@ -150,3 +150,4 @@ MonoBehaviour:
   StartPos: {x: 0, y: 0, z: 0}
   EndPos: {x: 0, y: 0, z: 0}
   Height: 0
+  Unplugged: 0
