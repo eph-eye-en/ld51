@@ -60,6 +60,10 @@ public class WiresModule : ModuleController
             if(!c.Unplugged) {
                 if((isRight || w.Left == n)
                 && (!isRight || w.Right == n)) {
+                    if(!Attemptable) {
+                        OnFail.Invoke();
+                        return;
+                    }
                     if(w.CutOrder == currCutOrderIndex) {
                         c.Unplugged = true;
                         if(!isRight) {
@@ -74,8 +78,9 @@ public class WiresModule : ModuleController
                         return;
                     }
                 }
-                else if(nextCutOrderIndex == null
-                || w.CutOrder < nextCutOrderIndex.Value)
+                else if(w.CutOrder >= 0
+                && (nextCutOrderIndex == null
+                || w.CutOrder < nextCutOrderIndex.Value))
                     nextCutOrderIndex = w.CutOrder;
             }
         }
